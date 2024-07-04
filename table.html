@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 80%; /* Adjust width as needed */
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 8px; /* Reduced padding */
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px; /* Reduced font size */
+        }
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .total-row td {
+            font-weight: bold;
+            background-color: #f4f4f4;
+        }
+        .amount-cell {
+            text-align: right;
+        }
+        .item-description {
+            width: 200px; /* Adjusted width */
+        }
+        .item-details {
+            width: 150px; /* Adjusted width */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">No of items - 3</th>
+                <th>Tax Amt - ₹100.53</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="total-row">
+                <td colspan="5">₹385.60</td>
+            </tr>
+            <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Qty - Price - MRP - Total Saving - Tax Rate%</th>
+                <th>Batch</th>
+                <th class="amount-cell">Amount</th>
+            </tr>
+            <!-- First Item -->
+            <tr>
+                <td>1</td>
+                <td class="item-description">ASIAN ENAMEL PREMIUM SATIN RICH ROSEWOOD 1LTR</td>
+                <td class="item-details">Qty - 1 Nos Price - ₹150 MRP- ₹180 Total Saving- ₹30 Tax Rate%</td>
+                <td>P150- M180</td>
+                <td class="amount-cell" rowspan="2">₹177</td>
+            </tr>
+            <!-- Second Item -->
+            <tr>
+                <td>2</td>
+                <td class="item-description">FLASH BASECOAT WOOD RAW SIENNA 250GM</td>
+                <td class="item-details">Qty - 1 Nos Price - ₹100 MRP- ₹120 Total Saving- ₹20 Tax Rate%</td>
+                <td>P100- M120</td>
+            </tr>
+            <!-- Third Item -->
+            <tr>
+                <td>3</td>
+                <td class="item-description">FLASH BASECOAT MIDNIGHT PLUMB POWDER 250GM</td>
+                <td class="item-details">Qty - 1 Nos Price - ₹135 MRP- ₹160 Total Saving- ₹25 Tax Rate%</td>
+                <td>P135- M160</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

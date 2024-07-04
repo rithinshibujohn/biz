@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+        }
+        body {
+             font-family: Arial;
+        }
+        table {
+            width: 80%; /* Adjust width as needed */
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 8px; /* Reduced padding */
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px; /* Reduced font size */
+        }
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .total-row td {
+            font-weight: bold;
+            background-color: #f4f4f4;
+        }
+        .amount-cell {
+            text-align: right;
+        }
+        .item-description {
+            width: 200px; /* Adjusted width */
+        }
+        .item-details {
+            width: 150px; /* Adjusted width */
+        }
+        .keypad { 
+            background-color: #f5f5f5; 
+            width: max-content; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            margin: 12px;
+        }
+        .row { display: flex; }
+        .key { width: 50px; height: 50px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; background-color: #fff; cursor: pointer; }
+        .function-key { width: auto; padding-left: 10px; }
+        .key-button {
+            border: 2px solid #777777;
+            border-radius: 7px;
+            /* border: none; */
+            background-color: transparent;
+            cursor: pointer;
+         }
+        .form-container {
+            /* background-color: white; */
+            /* padding: 20px; */
+            border-radius: 8px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 50px;
+        }
+        .left-column {
+            display: flex;
+            flex-direction: column;
+
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 250px;
+        }
+        .form-group .full-width {
+            width: 100%;
+        }
+        /* Add this style to align fields to the right */
+        .form-group.right-align {
+            justify-content: flex-end;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 5px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.4s, opacity 0.3s;
+        }
+        button:hover {
+            opacity: 0.1; /* Adjust the opacity for hover effect */
+        }
+        .button-label {
+            margin-top: 5px;
+            font-size: 14px; /* Adjust the font size as needed */
+            text-align: center;
+        }
+        .clicked {
+            background-color: #d3d3d3; /* Change the color when clicked */
+        }
+        .one {
+            /* margin-top: auto;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center; */
+        }
+        .container {
+            background-color: white;
+            display: flex;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        }
+        .two, .three {
+            height: 400px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .two {
+            width: 1000px;
+            
+        
+        }
+        .three {
+            /* background: #d48de2; */
+            width: fit-content; /* Adjust the width to your desired value */
+            flex: none;
+        }
+        .container2 {
+            display: flex;
+        }
+        .four {
+            display: grid;
+            display: flex;
+            grid-template-columns: repeat(2, 1fr);
+            /* gap: 10px; */
+        .four img{
+            width: 20px; /* Adjust the width as needed */
+            height: auto;
+        }
+        }
+        .four button {
+            
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .four button:hover {
+            background-color: #ddd;
+        }
+        .five {
+            background: #64eeb4;
+            width: fit-content; /* Adjust the width to your desired value */
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .six {
+            background: #f3ed9b;
+            width: fit-content; /* Adjust the width to your desired value */
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 940px;
+        }
+        .table-container{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <div class="one">
+        <div class="button-container">
+            <button onclick="handleClick(this)">
+                <img src="images/sales quotation.png" alt="Sales Quotation" width="70px" height="auto">
+                <div class="button-label">Sales Quotation</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/sales order.png" alt="Sales Order" width="70px" height="auto">
+                <div class="button-label">Sales Order</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/delivery.png" alt="Delivery" width="70px" height="auto">
+                <div class="button-label">Delivery</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/sales invoice.png" alt="Sales Invoice" width="70px" height="auto">
+                <div class="button-label">Sales Invoice</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/refund.png" alt="Refund" width="70px" height="auto">
+                <div class="button-label">Refund</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/exchange.png" alt="Exchange" width="70px" height="auto">
+                <div class="button-label">Exchange</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/gift.png" alt="Gift" width="70px" height="auto">
+                <div class="button-label">Gift</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/cashinout.png" alt="Cash In/Out" width="70px" height="auto">
+                <div class="button-label">Cash In/Out</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/deposit.png" alt="Deposits" width="70px" height="auto">
+                <div class="button-label">Deposits</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/expenses.png" alt="Expenses" width="70px" height="auto">
+                <div class="button-label">Expenses</div>
+            </button>
+            <button onclick="handleClick(this)">
+                <img src="images/return.png" alt="Return" width="70px" height="auto">
+                <div class="button-label">Return</div>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="two">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3">No of items - 3</th>
+                            <th>Tax Amt - ₹100.53</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>1</td>
+                            <td class="item-description">ASIAN ENAMEL PREMIUM SATIN RICH ROSEWOOD 1LTR</td>
+                            <td class="item-details">Qty - 1 Nos Price - ₹150 MRP- ₹180 Total Saving- ₹30 Tax Rate%</td>
+                            <td>P150- M180</td>
+                            <td class="amount-cell" rowspan="2">₹177</td>
+                        </tr>
+                        <!-- Second Item -->
+                        <tr>
+                            <td>2</td>
+                            <td class="item-description">FLASH BASECOAT WOOD RAW SIENNA 250GM</td>
+                            <td class="item-details">Qty - 1 Nos Price - ₹100 MRP- ₹120 Total Saving- ₹20 Tax Rate%</td>
+                            <td>P100- M120</td>
+                        </tr>
+                        <!-- Third Item -->
+                        <tr>
+                            <td>3</td>
+                            <td class="item-description">FLASH BASECOAT MIDNIGHT PLUMB POWDER 250GM</td>
+                            <td class="item-details">Qty - 1 Nos Price - ₹135 MRP- ₹160 Total Saving- ₹25 Tax Rate%</td>
+                            <td>P135- M160</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-container">
+                <div class="left-column">
+                    <div class="form-group">
+                        <label for="customer">Customer</label>
+                        <input type="text" id="customer" name="customer">
+                        <label for="mobile">Mobile</label>
+                        <input type="text" id="mobile" name="mobile">
+                        <label for="gstin">GSTIN</label>
+                        <input type="text" id="gstin" name="gstin">
+                    </div>
+                    <div class="form-group">
+                        <label for="billing-address">Billing Address</label>
+                        <textarea id="billing-address" name="billing-address" class="full-width"></textarea>
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                        <label for="district">District</label>
+                        <input type="text" id="district" name="district">
+                    </div>
+                    
+                </div>
+                <div class="form-group right-align">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" name="pincode">
+                    <label for="delivery">Delivery</label>
+                    <input type="text" id="delivery" name="delivery" class="full-width">
+                </div>
+            </div>
+        </div>
+        <div class="three">
+            <div class="keypad"><input type="text" id="display" style="
+                width: 300px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                color: #333;
+                background-color: #f9f9f9;
+            ">
+            
+
+                    <div class="row">
+
+                    <button class="key key-button" id="cust">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                          </svg>
+                    </button>
+                    <button class="key key-button" id="tbl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                            <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                            <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                          </svg>
+                    </button>
+                </div>
+                <div class="row">
+                    <button class="key key-button">1</button>
+                    <button class="key key-button">2</button>
+                    <button class="key key-button">3</button>
+                    <button class="key key-button">Price</button>
+                </div>
+                <div class="row">
+                    <button class="key key-button">4</button>
+                    <button class="key key-button">5</button>
+                    <button class="key key-button">6</button>
+                    <button class="key key-button">Qty</button>
+                </div>
+                <div class="row">
+                    <button class="key key-button">7</button>
+                    <button class="key key-button">8</button>
+                    <button class="key key-button">9</button>
+                    <button class="key key-button">Tax</button>
+                </div>
+                <div class="row">
+                    <button class="key key-button">.</button>
+                    <button class="key key-button">0</button>
+
+                    <button class="key key-button"><span style="font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+                        <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
+                        <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+                      </svg></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="four">
+            <button>Enquiry</button>
+            <button>Park/Recall</button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg"  style=" color: green;" width="26" height="26" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+              </svg>
+            </button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 0, 0);
+" width="26" height="26" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708"/>
+                  </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var inputField = document.getElementById('display');
+            var buttons = document.querySelectorAll('.key-button');
+
+            function updateDisplay(value) {
+                if (inputField.readOnly) {
+                    inputField.readOnly = false;
+                }
+                inputField.value += value;
+            }
+
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var buttonValue = this.textContent.trim();
+                    // If the button value is a number or a dot, update the display
+                    if (!isNaN(buttonValue) || buttonValue === '.') {
+                        updateDisplay(buttonValue);
+                    }
+                    // Handle special cases for buttons (Price, Qty, Tax)
+                    else if (buttonValue === '←') {
+                        // Handle backspace functionality
+                        inputField.value = inputField.value.slice(0, -1);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', function(event) {
+                var key = event.key;
+                if (!isNaN(key) || key === '.') {
+                    updateDisplay(key);
+                }
+                // Handle backspace key for input
+                else if (key === 'Backspace') {
+                    inputField.value = inputField.value.slice(0, -1);
+                }
+            });
+        });
+        function handleClick(button) {
+            // Remove the 'clicked' class from all buttons
+            var buttons = document.querySelectorAll('button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('clicked');
+            });
+            // Add the 'clicked' class to the clicked button
+            button.classList.add('clicked');
+        }
+        $(document).on('click', '#tbl', function() {
+            $('.form-container').hide();
+            $('.table-container').css('display', 'inline-block');
+
+        });
+        $(document).on('click', '#cust', function() {
+            $('.table-container').hide();
+            $('.form-container').css('display', 'flex');
+
+        });
+
+    </script>
+</body>
+</html>
