@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        button {
+            margin: 10px;
+            padding: 5px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.4s, opacity 0.3s;
+        }
+        button:hover {
+            opacity: 0.1; /* Adjust the opacity for hover effect */
+        }
+        img {
+            width: 70px; /* Adjust the width as needed */
+            height: auto;
+        }
+        .button-label {
+            margin-top: 5px;
+            font-size: 14px; /* Adjust the font size as needed */
+            text-align: center;
+        }
+        .clicked {
+            background-color: #d3d3d3; /* Change the color when clicked */
+        }
+    </style>
+</head>
+<body>
+    <button onclick="handleClick(this)">
+        <img src="images/sales quotation.png" alt="Sales Quotation">
+        <div class="button-label">Sales Quotation</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/sales order.png" alt="Sales Order">
+        <div class="button-label">Sales Order</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/delivery.png" alt="Delivery">
+        <div class="button-label">Delivery</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/sales invoice.png" alt="Sales Invoice">
+        <div class="button-label">Sales Invoice</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/refund.png" alt="Refund">
+        <div class="button-label">Refund</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/exchange.png" alt="Exchange">
+        <div class="button-label">Exchange</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/gift.png" alt="Gift">
+        <div class="button-label">Gift</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/cashinout.png" alt="Cash In/Out">
+        <div class="button-label">Cash In/Out</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/deposit.png" alt="Deposits">
+        <div class="button-label">Deposits</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/expenses.png" alt="Expenses">
+        <div class="button-label">Expenses</div>
+    </button>
+    <button onclick="handleClick(this)">
+        <img src="images/return.png" alt="Return">
+        <div class="button-label">Return</div>
+    </button>
+    <script>
+        function handleClick(button) {
+            // Remove the 'clicked' class from all buttons
+            var buttons = document.querySelectorAll('button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('clicked');
+            });
+            // Add the 'clicked' class to the clicked button
+            button.classList.add('clicked');
+        }
+    </script>
+</body>
+</html>
