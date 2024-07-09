@@ -11,8 +11,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: rgb(58, 192, 91);
-background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%);
+            /background: radial-gradient(circle, rgb(255 255 255) 0%, rgb(255 237 226) 100%);//
+            background: linear-gradient(276deg, white, #eee6e0)
+        
         }
         body {
              font-family: Arial;
@@ -59,16 +60,18 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
             width: 150px; /* Adjusted width */
         }
         .keypad { 
-            background-color: #f5f5f5;
+            
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            background: radial-gradient(circle, rgb(255 255 255) 0%, rgb(255 237 226) 100%);
+            /* background-color: #f5f5f5; */
             /* width: max-content; */
             padding: 10px;
-            border-radius: 20px;
+            /* border-radius: 20px; */
             margin-left: 12px;
             height: 95%;
-    
         }
         .row { display: flex; }
-        .key { width: 50px; height: 50px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; background-color: #fff; cursor: pointer; font-size: large; }
+        .key { width: 50px; height: 50px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; background-color: #fff; cursor: pointer; }
         .function-key { width: auto; padding-left: 10px; }
         .key-button {
             border: 2px solid #69696b;
@@ -104,6 +107,8 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
             font-weight: bold;
         }
         .form-group input[type="text"] {
+            
+    background: white;
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -118,14 +123,16 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
         }
 
         .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-            background: #fffefe;
-            /* border-radius: 30px; */
-            width: 1150px;
-            height: 87px;
+         
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: radial-gradient(circle, rgb(255 255 255) 0%, rgb(255 238 228) 100%);
+    /* border-radius: 30px; */
+    box-shadow: rgb(255 112 33 / 36%) 0px 0px 0px 2px, rgb(30 30 30 / 65%) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    width: 1500px;
+    height: 87px;
         }
         button {
             margin: 10px;
@@ -146,7 +153,6 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
             margin-top: 2px;
             font-size: 12px; /* Adjust the font size as needed */
             text-align: center;
-            
         }
         .clicked {
             background-color: #d3d3d3; /* Change the color when clicked */
@@ -163,20 +169,24 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
             display: flex;
             box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
             background: transparent;
-            border-radius: 20px;
+            /border-radius: 20px;/
         }
         .two, .three {
-            height: 420px;
+           
+            height: 480px;
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-        
+                
         
         }
         .two {
-            width: 800px;
-            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+           
+            width: 1150px;
+            /* border-radius: 20px; */
+    background: radial-gradient(circle, rgb(255 255 255) 0%, rgb(255 237 226) 100%);
         }
         .three {
             /* background: #d48de2; */
@@ -191,6 +201,10 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
             display: flex;
             grid-template-columns: repeat(2, 1fr);
             /* gap: 10px; */
+            background: antiquewhite;
+            margin-top: 20px;
+            margin-right: 400px;
+
         .four img{
             width: 20px; /* Adjust the width as needed */
             height: auto;
@@ -310,12 +324,38 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
             color: rgb(7, 6, 6);
           }
 
+        .nav{
+            background-color: #91969a;
+            justify-content: left;
+            width: 1500px;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            
+        }
+        #cmpname{
+            margin-left:10px;
+        }
+        #datetime{
+            margin-left: 20px;
+        }
+        #store{
+            margin-left: 950px;
+        }
+
+
+
 
     </style>
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+
+    <div class="nav">
+        <p id="cmpname">Davean Enterprises</p>
+         <p id="datetime">09 July 2024 1:16 PM </p> 
+         <p id="store"> Store : Petta, Poonithura</p>
+    </div>
     <div class="one">
         <div class="button-container">
             <button onclick="handleClick(this)">
@@ -509,6 +549,11 @@ background: radial-gradient(circle, rgb(105, 165, 255) 0%, rgb(255, 136, 0) 100%
                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708"/>
                   </svg>
             </button>
+            <button id="park">PARK /RECALL</button>
+            <button id="park">PARK /RECALL</button> 
+            <button id="park">PARK /RECALL</button> 
+            <button id="park">PARK /RECALL</button> 
+            <button id="park">PARK /RECALL</button> 
         </div>
     </div>
 
